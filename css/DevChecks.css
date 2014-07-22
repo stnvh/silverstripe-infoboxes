@@ -1,0 +1,35 @@
+.devcheck {
+	margin-top: 7px;
+	padding: 3px 3px 3px 28px;
+	border: 1px solid #fff;
+	border-radius: 4px;
+	background: #000;
+	text-align: left;
+}
+
+.devcheck.serious {
+	border-color: #7b0008;
+	background: #fbd2d4 url('../images/check_serious.png') no-repeat 2px center;
+	color: #d33232;
+}
+.devcheck.serious a {
+	color: #d33232;
+}
+
+.devcheck.warning {
+	border-color: #ca993a;
+	background: #fff8c4 url('../images/check_warning.png') no-repeat 2px center;
+	color: #94581d;
+}
+.devcheck.warning a {
+	color: #94581d;
+}
+
+.devcheck.info {
+	border-color: #b9e7f9;
+	background: #e3f7fc url('../images/check_info.png') no-repeat 2px center;;
+	color: #3c4a69;
+}
+.devcheck.info a {
+	color: #3c4a69;
+}

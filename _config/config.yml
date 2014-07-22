@@ -1,0 +1,6 @@
+---
+Name: devchecks
+---
+LeftAndMain:
+  extensions:
+    - DevChecks
