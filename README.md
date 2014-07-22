@@ -8,12 +8,6 @@ By Stan Hutcheon - [Bigfork Ltd](http://bigfork.co.uk)
 
 ## Installation:
 
-### Composer:
-
-```
-composer require "stnvh/silverstripe-devchecks" dev-master
-```
-
 ### Download:
 
 Clone this repo into a folder called ```devchecks``` in your silverstripe installation folder.
