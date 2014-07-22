@@ -1,0 +1,20 @@
+{
+	"name": "stnvh/silverstripe-devchecks",
+	"description": "Conditional CMS info boxes.",
+	"type": "silverstripe-module",
+	"homepage": "https://github.com/stnvh/silverstripe-devchecks",
+	"keywords": ["silverstripe", "conditional", "info", "boxes", "cms"],
+	"authors": [
+		{
+			"name": "Stan Hutcheon",
+			"email": "stanhutcheon@me.com"
+		}
+	],
+	"license": "BSD-3-Clause",
+	"support": {
+		"issues": "https://github.com/stnvh/silverstripe-devchecks/issues"
+	},
+	"require": {
+		"silverstripe/framework": "~3.*"
+	}
+}
