@@ -15,6 +15,6 @@
 		"issues": "https://github.com/stnvh/silverstripe-devchecks/issues"
 	},
 	"require": {
-		"silverstripe/framework": "~3.*"
+		"silverstripe/framework": "~3.1"
 	}
 }
