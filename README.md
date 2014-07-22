@@ -20,42 +20,29 @@ Clone this repo into a folder called ```devchecks``` in your silverstripe instal
 
 ### Usage:
 
-It currently only checks if dev mode is active, or if the default admin login credentials are being used. More checks can be added:
+It currently has 2 built in checks; one to check if in dev mode and the other to check if the default admin is in use.
 
-*code/DevChecks.php:*
+To add a check, create a file in */mysite/code* called ```DevCheck_[your_check_name].php``` with the following functions:
+
+example:
 ```php
 <?php
 
-class DevChecks extends LeftAndMainExtension {
-	***
-	$defaults = array(
-			'pass' => array(
-				'type' => 0,
-				'show' => false,
-				'message' => 'Default password'
-			),
-			'dev' => array(
-				'type' => 1,
-				'show' => false,
-				'message' => 'Dev mode'
-			)
-		);
-    ***
+class DevCheck_example implements DevChecks_interface {
+
+	public function showMessage() {
+        return Director::isLive(); // Our conditional code, this can be anything as long as it returns true or false
+	}
+
+	public function getMessage() {
+		return 'Live Mode'; // Message to be displayed
+	}
+
+	public function getSeverity() {
+		return 2; // 0 = severe, 1 = warning, 2 = info
+	}
+    
 }
 
 ```
-Add your check as an array to the ```$defaults``` array, following the format:
-```php
-'key' => array(
-	'type' => 0, // 0 = serious, 1 = warning, 2 = info	
-    'show' => false, // default showing value
-    'message' => 'Test message' // The message you wish to display in the CMS
-)
-```
-
-Then add your conditional code, be sure to set the ```$defaults['key']['show'] = true``` in the statement, e.g:
-```php
-if(Director::get_environment_type() == 'live') { // if we're in live mode
-	$defaults['key']['show'] = true;
-}
-```
+Then *dev/build*

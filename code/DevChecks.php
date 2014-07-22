@@ -6,58 +6,38 @@ class DevChecks extends LeftAndMainExtension {
 
 		parent::init();
 
-		/* 
-		- type 0: serious
-		- type 1: warning
-		- type 2: info
-		*/
+		$conf = array();
 
-		$defaults = array(
-			'pass' => array(
-				'type' => 0,
-				'show' => false,
-				'message' => 'Default password'
-			),
-			'dev' => array(
-				'type' => 1,
-				'show' => false,
-				'message' => 'Dev mode'
-			)
-		);
-
-		/* pass */
-		if($member = Member::currentUser()) {
-			if(!$member->Email) {
-				$defaults['pass']['show'] = true;
+		$i = 0;
+		$checks = ClassInfo::implementorsOf('DevChecks_Interface');
+		foreach($checks as $class) {
+			$inst = Injector::inst()->get($class);
+			if($inst->showMessage()) {
+				$conf[$i]['type'] = $inst->getSeverity();
+				$conf[$i]['message'] = $inst->getMessage();
 			}
+			$i++;
 		}
 
-		/* dev */
-		if(Director::get_environment_type() == 'dev') {
-			$defaults['dev']['show'] = true;
-		}
+		$parsed = $this->parseForJS($conf);
 
-		/* end user in, leave stuff after this */
+		Requirements::css('devchecks/css/DevChecks.css');
+		Requirements::javascriptTemplate('devchecks/javascript/DevChecks.js', $parsed);
+	}
 
+	private function parseForJS($array) {
 		$parse = array(
 			'Data' => ''
 		);
 
-		foreach($defaults as $key => $data) {
+		foreach($array as $key => $data) {
 			$key = str_replace('"', '\"', $key);
 			$data['message'] = str_replace('"', '\"', $data['message']);
 
-			if($data['show'] === false) {
-				$data['show'] = 0;
-			} elseif($data['show'] === true) {
-				$data['show'] = 1;
-			}
-
-			$parse['Data'] .= $key . '||' . $data['type'] . '||' . $data['show'] . '||' . $data['message'] . '[]';
+			$parse['Data'] .= $key . '||' . $data['type'] . '||' . $data['message'] . '[]';
 		}
 
-		Requirements::css('devchecks/css/DevChecks.css');
-		Requirements::javascriptTemplate('devchecks/javascript/DevChecks.js', $parse);
+		return $parse;
 	}
 
 }
