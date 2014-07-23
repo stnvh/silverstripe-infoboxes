@@ -7,7 +7,7 @@ class InfoBox_dev implements InfoBox {
 	}
 
 	public function message() {
-		return 'Dev Mode';
+		return 'Dev mode active';
 	}
 
 	public function severity() {

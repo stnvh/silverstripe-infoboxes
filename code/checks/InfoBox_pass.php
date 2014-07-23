@@ -4,7 +4,7 @@ class InfoBox_pass implements InfoBox {
 
 	public function show() {
 		if($member = Member::currentUser()) {
-			if(!$member->Email) {
+			if(!$member->Email || Security::has_default_admin()) {
 				return true;
 			}
 		}
@@ -12,7 +12,7 @@ class InfoBox_pass implements InfoBox {
 	}
 
 	public function message() {
-		return 'Default password';
+		return 'Change password!';
 	}
 
 	public function severity() {
