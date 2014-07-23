@@ -27,7 +27,7 @@
 
 .devcheck.info {
 	border-color: #b9e7f9;
-	background: #e3f7fc url('../images/check_info.png') no-repeat 2px center;;
+	background: #e3f7fc url('../images/check_info.png') no-repeat 2px center;
 	color: #3c4a69;
 }
 .devcheck.info a {
