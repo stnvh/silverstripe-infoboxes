@@ -1,6 +1,6 @@
 <?php
 
-class InfoBoxTest extends SapphireTest {
+class InfoBoxesTest extends SapphireTest {
 
 	public function testParseForJS() {
 
