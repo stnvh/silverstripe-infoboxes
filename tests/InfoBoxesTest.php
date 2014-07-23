@@ -8,7 +8,7 @@ class InfoBoxTest extends SapphireTest {
 		$method = $reflection->getMethod('parseForJS');
 		$method->setAccessible(true);
 
-		$checks = new InfoBox();
+		$checks = new InfoBoxes();
 
 		$testConf = array(
 			'dev' => array(
@@ -36,11 +36,11 @@ class InfoBoxTest extends SapphireTest {
 
 	public function testEscapeJS() {
 
-		$reflection = new ReflectionClass('DevChecks');
+		$reflection = new ReflectionClass('InfoBoxes');
 		$method = $reflection->getMethod('escapeJS');
 		$method->setAccessible(true);
 
-		$checks = new DevChecks();
+		$checks = new InfoBoxes();
 
 		$returned = $method->invoke($checks, "' <script>alert('hello');</script>");
 		$expected = "&#039; &lt;script&gt;alert(&#039;hello&#039;);&lt;/script&gt;";
