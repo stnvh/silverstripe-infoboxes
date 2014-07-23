@@ -1,38 +1,32 @@
 (function($) {
 
-	var data = "$Data".split('[]');
+	var data = $Data;
 
 	for(var i = 0; i < data.length; i++) {
 		if(data[i]) {
-			var arr = data[i].split('||');
-			var current = {
-				'type': parseInt(arr[1]),
-				'message': arr[2]
-			};
-			switch(current['type']) {
+			var curr = data[i];
+			switch(curr[0]) {
 				case 0:
-					$('.cms-login-status').append(createSerious(current['message']));
+					$('.cms-login-status').append(createBox('serious', curr[1]));
 					break;
 				case 1:
-					$('.cms-login-status').append(createWarning(current['message']));
+					$('.cms-login-status').append(createBox('warning', curr[1]));
 					break;
 				case 2:
-					$('.cms-login-status').append(createInfo(current['message']));
+					$('.cms-login-status').append(createBox('info', curr[1]));
 					break;
 			}
 		}
 	}
 
-	function createInfo(text) {
-		return '<div class="devcheck info">' + text + '</a>';
-	}
-
-	function createWarning(text) {
-		return '<div class="devcheck warning">' + text + '</a>';
-	}
-
-	function createSerious(text) {
-		return '<div class="devcheck serious">' + text + '</a>';
+	/**
+	 * Creates the info box element markup
+	 * @param {String} type either serious, warning or info
+	 * @param {String} text the text to display in the markup
+	 * @return {String}
+	 */
+	function createBox(type, text) {
+		return '<div class="devcheck ' + type + '">' + text + '</a>';
 	}
 
 })(jQuery);
