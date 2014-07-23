@@ -15,7 +15,6 @@ By Stan Hutcheon - [Bigfork Ltd](http://bigfork.co.uk)
 composer require "stnvh/silverstripe-infoboxes" "1.*"
 ```
 
-
 ### Download:
 
 Clone this repo into a folder called ```infoboxes``` in your silverstripe installation folder.
@@ -24,7 +23,7 @@ Clone this repo into a folder called ```infoboxes``` in your silverstripe instal
 
 It currently has 2 built in checks; one to check if in dev mode and the other to check if the default admin is in use.
 
-To add a check, create a file in */mysite/code/checks* called ```InfoBox_[your_check_name].php``` with the following functions:
+To add a check, create a file in */mysite/code/* called ```InfoBox_[your_check_name].php``` with the following functions:
 
 example:
 ```php
@@ -47,4 +46,4 @@ class InfoBox_example implements InfoBox {
 }
 
 ```
-Then *dev/build*
+After installing via composer, or after adding a new InfoBox, you must */dev/build*
