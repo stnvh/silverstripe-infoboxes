@@ -12,7 +12,7 @@ By Stan Hutcheon - [Bigfork Ltd](http://bigfork.co.uk)
 ### Composer:
 
 ```
-composer require "stnvh/silverstripe-infoboxes" dev-master
+composer require "stnvh/silverstripe-infoboxes" "1.*"
 ```
 
 
