@@ -1,4 +1,5 @@
 # Silverstripe Dev Checks
+[![Build Status](https://travis-ci.org/stnvh/silverstripe-devchecks.svg?branch=master)](https://travis-ci.org/stnvh/silverstripe-devchecks) [![Latest Stable Version](https://poser.pugx.org/stnvh/silverstripe-devchecks/v/stable.svg)](https://packagist.org/packages/stnvh/silverstripe-devchecks) [![License](https://poser.pugx.org/stnvh/silverstripe-devchecks/license.svg)](https://packagist.org/packages/stnvh/silverstripe-devchecks)
 
 Conditional CMS info boxes.
 
