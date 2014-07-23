@@ -14,4 +14,4 @@ before_script:
   - cd ~/builds/ss
 
 script: 
-  - phpunit silverstripe-devchecks/tests/
+  - phpunit devchecks/tests/
