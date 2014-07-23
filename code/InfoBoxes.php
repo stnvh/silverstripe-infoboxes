@@ -1,6 +1,6 @@
 <?php
 
-class DevChecks extends LeftAndMainExtension {
+class InfoBoxes extends LeftAndMainExtension {
 
 	/**
 	 * @return void
@@ -11,19 +11,19 @@ class DevChecks extends LeftAndMainExtension {
 
 		$conf = array();
 
-		$checks = ClassInfo::implementorsOf('DevChecks_Interface');
+		$checks = ClassInfo::implementorsOf('InfoBox');
 		foreach($checks as $i => $class) {
 			$inst = Injector::inst()->get($class);
-			if($inst->showMessage()) {
-				$conf[$i]['type'] = $inst->getSeverity();
-				$conf[$i]['message'] = $inst->getMessage();
+			if($inst->show()) {
+				$conf[$i]['type'] = $inst->severity();
+				$conf[$i]['message'] = $inst->message();
 			}
 		}
 
 		$parsed = $this->parseForJS($conf);
 
-		Requirements::css(DEVCHECKS_DIR . '/css/DevChecks.css');
-		Requirements::javascriptTemplate(DEVCHECKS_DIR . '/javascript/DevChecks.js', $parsed);
+		Requirements::css(INFOBOXES_DIR . '/css/InfoBoxes.css');
+		Requirements::javascriptTemplate(INFOBOXES_DIR . '/javascript/InfoBoxes.js', $parsed);
 	}
 
 	/**

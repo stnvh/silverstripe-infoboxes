@@ -1,3 +1,3 @@
 <?php
 
-define('DEVCHECKS_DIR', basename(dirname(__FILE__)));
+define('INFOBOXES_DIR', basename(dirname(__FILE__)));

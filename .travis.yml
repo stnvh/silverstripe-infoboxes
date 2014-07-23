@@ -14,4 +14,4 @@ before_script:
   - cd ~/builds/ss
 
 script: 
-  - phpunit devchecks/tests/
+  - phpunit infoboxes/tests/

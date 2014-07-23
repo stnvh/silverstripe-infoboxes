@@ -1,23 +1,23 @@
 <?php
 
-interface DevChecks_interface {
+interface InfoBox {
 
 	/**
 	 * Determines if the message should be shown
 	 * @return bool
 	 */
-	public function showMessage();
+	public function show();
 
 	/**
 	 * Determines the message to show
 	 * @return string
 	 */
-	public function getMessage();
+	public function message();
 
 	/**
 	 * Determines the severity of the message
 	 * @return int either 0, 1, 2
 	 */
-	public function getSeverity();
+	public function severity();
 
 }

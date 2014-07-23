@@ -1,14 +1,14 @@
 <?php
 
-class DevChecksTest extends SapphireTest {
+class InfoBoxTest extends SapphireTest {
 
 	public function testParseForJS() {
 
-		$reflection = new ReflectionClass('DevChecks');
+		$reflection = new ReflectionClass('InfoBoxes');
 		$method = $reflection->getMethod('parseForJS');
 		$method->setAccessible(true);
 
-		$checks = new DevChecks();
+		$checks = new InfoBox();
 
 		$testConf = array(
 			'dev' => array(

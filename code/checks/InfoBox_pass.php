@@ -1,8 +1,8 @@
 <?php
 
-class DevCheck_pass implements DevChecks_interface {
+class InfoBox_pass implements InfoBox {
 
-	public function showMessage() {
+	public function show() {
 		if($member = Member::currentUser()) {
 			if(!$member->Email) {
 				return true;
@@ -11,11 +11,11 @@ class DevCheck_pass implements DevChecks_interface {
 		return false;
 	}
 
-	public function getMessage() {
+	public function message() {
 		return 'Default password';
 	}
 
-	public function getSeverity() {
+	public function severity() {
 		return 0;
 	}
 

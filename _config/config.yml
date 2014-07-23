@@ -1,6 +1,6 @@
 ---
-Name: devchecks
+Name: infoboxes
 ---
 LeftAndMain:
   extensions:
-    - DevChecks
+    - InfoBoxes

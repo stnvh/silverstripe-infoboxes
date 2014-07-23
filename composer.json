@@ -1,8 +1,8 @@
 {
-	"name": "stnvh/silverstripe-devchecks",
+	"name": "stnvh/silverstripe-infoboxes",
 	"description": "Conditional CMS info boxes.",
 	"type": "silverstripe-module",
-	"homepage": "https://github.com/stnvh/silverstripe-devchecks",
+	"homepage": "https://github.com/stnvh/silverstripe-infoboxes",
 	"keywords": ["silverstripe", "conditional", "info", "boxes", "cms"],
 	"authors": [
 		{
@@ -12,13 +12,13 @@
 	],
 	"license": "BSD-3-Clause",
 	"support": {
-		"issues": "https://github.com/stnvh/silverstripe-devchecks/issues"
+		"issues": "https://github.com/stnvh/silverstripe-infoboxes/issues"
 	},
 	"require": {
 		"silverstripe/framework": "3.*",
 		"composer/installers": "~1.0"
 	},
 	"extra" : {
-		"installer-name": "devchecks"
+		"installer-name": "infoboxes"
 	}
 }
