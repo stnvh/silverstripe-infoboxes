@@ -9,21 +9,34 @@ class InfoBoxes extends LeftAndMainExtension {
 
 		parent::init();
 
-		$conf = array();
-
-		$checks = ClassInfo::implementorsOf('InfoBox');
-		foreach($checks as $i => $class) {
-			$inst = Injector::inst()->get($class);
-			if($inst->show()) {
-				$conf[$i]['type'] = $inst->severity();
-				$conf[$i]['message'] = $inst->message();
-			}
-		}
+		$conf = $this->boxes();
 
 		$parsed = $this->parseForJS($conf);
 
 		Requirements::css(INFOBOXES_DIR . '/css/InfoBoxes.css');
 		Requirements::javascriptTemplate(INFOBOXES_DIR . '/javascript/InfoBoxes.js', $parsed);
+	}
+
+	/**
+	 * Returns all implementors of InfoBox (all checks / box info)
+	 * @return array $conf
+	 */
+	private function boxes() {
+		$conf = array();
+
+		$checks = ClassInfo::implementorsOf('InfoBox');
+		foreach($checks as $class) {
+			$inst = Injector::inst()->get($class);
+			$name = explode('_', $class);
+			if($name[1]) {
+				$class = $name[1];
+			}
+			if($inst->show()) {
+				$conf[$class]['type'] = $inst->severity();
+				$conf[$class]['message'] = $inst->message();
+			}
+		}
+		return $conf;
 	}
 
 	/**
@@ -36,7 +49,7 @@ class InfoBoxes extends LeftAndMainExtension {
 			'Data' => '['
 		);
 
-		foreach($array as $key => $data) {
+		foreach($array as $data) {
 			$data['message'] = $this->escapeJS($data['message']);
 			$parse['Data'] .= '[' . $data['type'] . ', \'' . $data['message'] . '\'], ';
 		}
