@@ -1,4 +1,4 @@
-.devcheck {
+.infobox {
 	margin-top: 7px;
 	padding: 3px 3px 3px 28px;
 	border: 1px solid #fff;
@@ -7,29 +7,29 @@
 	text-align: left;
 }
 
-.devcheck.serious {
+.infobox.serious {
 	border-color: #7b0008;
 	background: #fbd2d4 url('../images/check_serious.png') no-repeat 2px center;
 	color: #d33232;
 }
-.devcheck.serious a {
+.infobox.serious a {
 	color: #d33232;
 }
 
-.devcheck.warning {
+.infobox.warning {
 	border-color: #ca993a;
 	background: #fff8c4 url('../images/check_warning.png') no-repeat 2px center;
 	color: #94581d;
 }
-.devcheck.warning a {
+.infobox.warning a {
 	color: #94581d;
 }
 
-.devcheck.info {
+.infobox.info {
 	border-color: #b9e7f9;
 	background: #e3f7fc url('../images/check_info.png') no-repeat 2px center;
 	color: #3c4a69;
 }
-.devcheck.info a {
+.infobox.info a {
 	color: #3c4a69;
 }

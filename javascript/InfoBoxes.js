@@ -26,7 +26,7 @@
 	 * @return {String}
 	 */
 	function createBox(type, text) {
-		return '<div class="devcheck ' + type + '">' + text + '</a>';
+		return '<div class="infobox ' + type + '">' + text + '</a>';
 	}
 
 })(jQuery);
