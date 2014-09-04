@@ -33,3 +33,23 @@
 .infobox.info a {
 	color: #3c4a69;
 }
+
+/* collapsed styles 
+-------------------------------------------*/
+
+.cms-menu.collapsed .cms-login-status {
+	height: auto;
+}
+
+.cms-menu.collapsed .logout-link {
+	float: none;
+}
+
+.cms-menu.collapsed .devcheck {
+	overflow-x: hidden;
+	margin: 5px 0;
+	padding: 0 10px;
+	background-position: center center;
+	white-space: nowrap;
+	text-indent: 20px;
+}
