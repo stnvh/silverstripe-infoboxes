@@ -45,7 +45,7 @@
 	float: none;
 }
 
-.cms-menu.collapsed .devcheck {
+.cms-menu.collapsed .infobox {
 	overflow-x: hidden;
 	margin: 5px 0;
 	padding: 0 10px;
