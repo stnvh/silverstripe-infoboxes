@@ -1,5 +1,5 @@
 # Silverstripe Info Boxes
-[![Build Status](https://travis-ci.org/stnvh/silverstripe-infoboxes.svg?branch=master)](https://travis-ci.org/stnvh/silverstripe-infoboxes) [![Latest Stable Version](https://poser.pugx.org/stnvh/silverstripe-infoboxes/v/stable.svg)](https://packagist.org/packages/stnvh/silverstripe-infoboxes) [![License](https://poser.pugx.org/stnvh/silverstripe-devchecks/license.svg)](https://packagist.org/packages/stnvh/silverstripe-infoboxes)
+[![Build Status](https://travis-ci.org/stnvh/silverstripe-infoboxes.svg?branch=master)](https://travis-ci.org/stnvh/silverstripe-infoboxes) [![Latest Stable Version](https://poser.pugx.org/stnvh/silverstripe-infoboxes/v/stable.svg)](https://packagist.org/packages/stnvh/silverstripe-infoboxes) [![License](https://poser.pugx.org/stnvh/silverstripe-infoboxes/license.svg)](https://packagist.org/packages/stnvh/silverstripe-infoboxes)
 
 Conditional CMS info boxes.
 
