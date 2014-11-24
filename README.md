@@ -21,7 +21,13 @@ Clone this repo into a folder called ```infoboxes``` in your silverstripe instal
 
 ### Usage:
 
-It currently has 2 built in checks; one to check if in dev mode and the other to check if the default admin is in use.
+It currently has 5 built in checks:
+
+- Dev mode
+- Favicon existance
+- Google analytics code
+- Default password
+- if www is used
 
 To add a check, create a file in */mysite/code/* called ```InfoBox_[your_check_name].php``` with the following functions:
 
