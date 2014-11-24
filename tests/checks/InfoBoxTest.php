@@ -2,43 +2,47 @@
 
 class InfoBoxTest extends SapphireTest {
 
+	private function classList() {
+		return ClassInfo::implementorsOf('InfoBox');
+	}
+
 	public function testShow() {
 
-		$dev = new InfoBox_dev();
-		$pass = new InfoBox_pass();
+		$classes = $this->classList();
 
-		$dev_return = $dev->show();
-		$pass_return = $pass->show();
+		foreach($classes as $class) {
+			$inst = new $class();
 
-		$this->showTest($dev_return);
-		$this->showTest($pass_return);
+			$return = $inst->show();
 
+			$this->showTest($return);
+		}
 	}
 
-	public function testMessage() {
+	public function testShow() {
 
-		$dev = new InfoBox_dev();
-		$pass = new InfoBox_pass();
+		$classes = $this->classList();
 
-		$dev_return = $dev->message();
-		$pass_return = $pass->message();
-		
-		$this->messageTest($dev_return);
-		$this->messageTest($pass_return);
+		foreach($classes as $class) {
+			$inst = new $class();
 
+			$return = $inst->message();
+
+			$this->messageTest($return);
+		}
 	}
 
-	public function testSeverity() {
+	public function testShow() {
 
-		$dev = new InfoBox_dev();
-		$pass = new InfoBox_pass();
+		$classes = $this->classList();
 
-		$dev_return = $dev->severity();
-		$pass_return = $pass->severity();
-		
-		$this->severityTest($dev_return);
-		$this->severityTest($pass_return);
+		foreach($classes as $class) {
+			$inst = new $class();
 
+			$return = $inst->severity();
+
+			$this->severityTest($return);
+		}
 	}
 
 	private function showTest($value) {
