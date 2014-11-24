@@ -19,7 +19,7 @@ class InfoBoxTest extends SapphireTest {
 		}
 	}
 
-	public function testShow() {
+	public function testMessage() {
 
 		$classes = $this->classList();
 
@@ -32,7 +32,7 @@ class InfoBoxTest extends SapphireTest {
 		}
 	}
 
-	public function testShow() {
+	public function testSeverity() {
 
 		$classes = $this->classList();
 
