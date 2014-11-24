@@ -3,11 +3,14 @@
 class InfoBox_ga implements InfoBox {
 
 	public function show() {
-		$conf = SiteConfig::current_site_config();
+		if(class_exists('SiteConfig')) {
+			$conf = SiteConfig::current_site_config();
 
-		if(!$conf->GoogleAnalyticsTrackingID) {
-			return true;
+			if(!$conf->GoogleAnalyticsTrackingID) {
+				return true;
+			}
 		}
+		
 		return false;
 	}
 
