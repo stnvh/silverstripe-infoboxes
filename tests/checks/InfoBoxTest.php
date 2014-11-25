@@ -45,6 +45,19 @@ class InfoBoxTest extends SapphireTest {
 		}
 	}
 
+	public function testLink() {
+
+		$classes = $this->classList();
+
+		foreach($classes as $class) {
+			$inst = new $class();
+
+			$return = $inst->link();
+
+			$this->linkTest($return);
+		}
+	}
+
 	private function showTest($value) {
 		$this->assertInternalType('boolean', $value);
 	}
@@ -57,6 +70,16 @@ class InfoBoxTest extends SapphireTest {
 		$this->assertInternalType('integer', $value);
 		$this->assertLessThanOrEqual(2, $value);
 		$this->assertGreaterThanOrEqual(0, $value);
+	}
+
+	private function linkTest($value) {
+		$this->assertThat(
+			$value,
+			$this->logicalOr(
+				$this->isFalse(),
+				$this->isType('string')
+			)
+		);
 	}
 
 }

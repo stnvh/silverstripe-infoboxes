@@ -14,4 +14,8 @@ class InfoBox_dev implements InfoBox {
 		return 1;
 	}
 
+	public function link() {
+		return false;
+	}
+
 }

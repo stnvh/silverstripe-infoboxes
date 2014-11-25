@@ -22,4 +22,8 @@ class InfoBox_ga implements InfoBox {
 		return 2;
 	}
 
+	public function link() {
+		return 'admin/settings';
+	}
+
 }

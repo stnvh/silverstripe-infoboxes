@@ -20,4 +20,10 @@ interface InfoBox {
 	 */
 	public function severity();
 
+	/**
+	 * Adds the option to link to a URL when clicked
+	 * @return string
+	 */
+	public function link();
+
 }

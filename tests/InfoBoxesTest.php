@@ -13,21 +13,27 @@ class InfoBoxesTest extends SapphireTest {
 		$testConf = array(
 			'dev' => array(
 				'type' => 0,
-				'message' => 'Dev Mode'
+				'message' => 'Dev Mode',
+				'link' => 'http://google.co.uk/'
 			),
 			'pass' => array(
 				'type' => 1,
-				'message' => 'Default Password'
+				'message' => 'Default Password',
+				'link' => false
 			),
 			'html' => array(
 				'type' => 2,
-				'message' => '<style>.devcheck { font-size: 18px; }</style><strong>\'HTML\' "Test"</strong>'
+				'message' => '<style>.devcheck { font-size: 18px; }</style><strong>\'HTML\' "Test"</strong>',
+				'link' => '"><script>alert(\'ok\');</script><a href="#'
 			)
 		);
 
 		$returned = $method->invoke($checks, $testConf);
 		$expected = array(
-			'Data' => '[[0, \'Dev Mode\'], [1, \'Default Password\'], [2, \'&lt;style&gt;.devcheck { font-size: 18px; }&lt;/style&gt;&lt;strong&gt;&#039;HTML&#039; &quot;Test&quot;&lt;/strong&gt;\']]'
+			'Data' => "[[0, 'Dev Mode', 'http://google.co.uk/']," . 
+			" [1, 'Default Password', ''], " . 
+			"[2, '&lt;style&gt;.devcheck { font-size: 18px; }&lt;/style&gt;&lt;strong&gt;&#039;HTML&#039; &quot;Test&quot;&lt;/strong&gt;', " . 
+			"'&quot;&gt;&lt;script&gt;alert(&#039;ok&#039;);&lt;/script&gt;&lt;a href=&quot;#']]"
 		);
 
 		$this->assertEquals($expected, $returned);

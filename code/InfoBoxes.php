@@ -3,6 +3,18 @@
 class InfoBoxes extends LeftAndMainExtension {
 
 	/**
+	 * Set disabled boxes
+	 * @param $list
+	 * @return void
+	 */
+	public static function set_disabled($list) {
+		if(!is_array($list)) {
+			$list = array($list);
+		}
+		Config::inst()->update('InfoBoxes', 'disabled', $list);
+	}
+
+	/**
 	 * @return void
 	 */
 	public function init() {
@@ -24,16 +36,20 @@ class InfoBoxes extends LeftAndMainExtension {
 	private function boxes() {
 		$conf = array();
 
+		$disabled = Config::inst()->get('InfoBoxes', 'disabled') ?: array();
+
 		$checks = ClassInfo::implementorsOf('InfoBox');
 		foreach($checks as $class) {
 			$inst = Injector::inst()->get($class);
 			$name = explode('_', $class);
+			$origClass = $class;
 			if($name[1]) {
 				$class = $name[1];
 			}
-			if($inst->show()) {
+			if($inst->show() && !in_array($class, $disabled) && !in_array($origClass, $disabled)) {
 				$conf[$class]['type'] = $inst->severity();
 				$conf[$class]['message'] = $inst->message();
+				$conf[$class]['link'] = $inst->link() ?: false;
 			}
 		}
 		return $conf;
@@ -51,7 +67,8 @@ class InfoBoxes extends LeftAndMainExtension {
 
 		foreach($array as $data) {
 			$data['message'] = $this->escapeJS($data['message']);
-			$parse['Data'] .= '[' . $data['type'] . ', \'' . $data['message'] . '\'], ';
+			$data['link'] = $data['link'] ? $this->escapeJS($data['link']) : '';
+			$parse['Data'] .= sprintf('[%s, \'%s\', \'%s\'], ', $data['type'], $data['message'], $data['link']);
 		}
 		$parse['Data'] = substr($parse['Data'], 0, -2) . ']';
 

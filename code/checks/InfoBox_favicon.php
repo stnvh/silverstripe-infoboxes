@@ -17,4 +17,8 @@ class InfoBox_favicon implements InfoBox {
 		return 2;
 	}
 
+	public function link() {
+		return false;
+	}
+
 }

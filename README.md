@@ -12,7 +12,7 @@ By Stan Hutcheon - [Bigfork Ltd](http://bigfork.co.uk)
 ### Composer:
 
 ```
-composer require "stnvh/silverstripe-infoboxes" "1.*"
+composer require stnvh/silverstripe-infoboxes ~1
 ```
 
 ### Download:
@@ -48,8 +48,38 @@ class InfoBox_example implements InfoBox {
 	public function severity() {
 		return 2; // 0 = severe, 1 = warning, 2 = info
 	}
+
+	public function link() {
+		// Can be any internal or external URL, or false if none
+		return 'http://doc.silverstripe.org/framework/en/topics/debugging/#environment-types';
+	}
     
 }
 
 ```
+
+You can now programmatically disable specific checks via the config API. Either via config.yml:
+
+```yml
+InfoBoxes:
+  disabled:
+    - example
+    - dev
+    - www
+
+```
+
+or via _config.php:
+
+```php
+<?php
+
+InfoBoxes::set_disabled('example');
+// or
+InfoBoxes::set_disabled(array('www', 'dev'));
+
+```
+
+You can either use the concatenated classname (e.g *InfoBox_www* -> *www*) or the full class name.
+
 After installing via composer, or after adding a new InfoBox, you must */dev/build*

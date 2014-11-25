@@ -19,4 +19,8 @@ class InfoBox_pass implements InfoBox {
 		return 0;
 	}
 
+	public function link() {
+		return 'admin/security';
+	}
+
 }

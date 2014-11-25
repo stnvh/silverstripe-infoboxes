@@ -19,5 +19,9 @@ class InfoBox_www implements InfoBox {
 	public function severity() {
 		return 2;
 	}
+	
+	public function link() {
+		return false;
+	}
 
 }
