@@ -52,6 +52,10 @@ class InfoBoxes extends LeftAndMainExtension {
 				$conf[$class]['link'] = $inst->link() ?: false;
 			}
 		}
+
+		function orderBoxes($a, $b) { return $a['type'] - $b['type']; }
+		uasort($conf, 'orderBoxes');
+		
 		return $conf;
 	}
 
